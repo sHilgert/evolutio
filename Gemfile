@@ -23,6 +23,10 @@ gem 'webpacker'
 gem 'pry'
 gem 'jquery-rails'
 gem 'devise'
+
+gem 'slack-ruby-client'
+gem 'decent_exposure'
+
 gem 'bootstrap-sass'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
