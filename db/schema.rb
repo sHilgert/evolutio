@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505212538) do
+ActiveRecord::Schema.define(version: 20180505214918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 20180505212538) do
     t.index ["department_id"], name: "index_jobs_on_department_id"
   end
 
+  create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
+    t.string "version"
+    t.integer "runtime"
+    t.datetime "migrated_on"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "description"
     t.bigint "family_id"
@@ -86,6 +92,9 @@ ActiveRecord::Schema.define(version: 20180505212538) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "job_id"
+    t.integer "leader_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
