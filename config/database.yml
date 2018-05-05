@@ -17,11 +17,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: evolutio
-  password:
+  password: evolutio
 
 development:
   <<: *default
@@ -84,4 +85,5 @@ production:
   <<: *default
   database: evolutio_production
   username: evolutio
+  host: <%= ENV['DB_HOST'] %>
   password: <%= ENV['EVOLUTIO_DATABASE_PASSWORD'] %>
