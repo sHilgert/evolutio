@@ -1,0 +1,46 @@
+$barColor: orange
+$backColor: white
+
+.progress-bar-wrap
+  display: flex
+
+.progress-bar__bar
+  background-color: $barColor
+  border-radius: 50%
+  height: 25px
+  margin-right: 16px
+  width: 25px
+
+.progress-bar__overlay
+  background-color: purple
+  border-radius: 50%
+  height: 15px
+  width: 15px
+
+.progress-bar__icon
+  height: 60px
+  width: 60px
+
+.centered-element
+  display: flex
+  justify-content: center
+  align-items: center
+
+
+/* -------------------------------------
+ * Mixin for progress-% class
+ * ------------------------------------- */
+
+$step: 5 // step of % for created classes
+
+$loops: round(100 / $step)
+$increment: 360 / $loops
+$half: round($loops / 2)
+@for $i from 0 through $loops
+  .progress-#{$i*$step}
+    @if $i < $half
+      $nextdeg: 90deg + ( $increment * $i )
+      background-image: linear-gradient(90deg, $backColor 50%, transparent 50%, transparent), linear-gradient($nextdeg, $barColor 50%, $backColor 50%, $backColor)
+    @else
+      $nextdeg: -90deg + ( $increment * ( $i - $half ) )
+      background-image: linear-gradient($nextdeg, $barColor 50%, transparent 50%, transparent), linear-gradient(270deg, $barColor 50%, $backColor 50%, $backColor)

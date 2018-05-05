@@ -1,0 +1,23 @@
+<div class="profile">
+  <div class="profile__header">
+    <h1>Perfil</h1>
+    <div class="profile__info">
+      <div class="profile__avatar">
+        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="avatar" class="profile__avatar-image">
+      </div>
+      <div class="profile__personal-info">
+        <p>Nome</p>
+        <p>Cargo</p>
+      </div>
+    </div>
+  </div>
+  <div class="profile__skills">
+    <h2>Competências</h2>
+
+    <div class="profile__skills-wrap">
+      <%= render "components/skills/skills", skills: @skills %>
+    </div>
+  </div>
+</div>
+
+<%= render "components/menu/menu" %>
