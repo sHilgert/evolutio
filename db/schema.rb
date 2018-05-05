@@ -15,6 +15,64 @@ ActiveRecord::Schema.define(version: 20180505212538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "competences", force: :cascade do |t|
+    t.string "name"
+    t.integer "weight"
+    t.string "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_skills", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "competence_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["competence_id"], name: "index_job_skills_on_competence_id"
+    t.index ["job_id"], name: "index_job_skills_on_job_id"
+    t.index ["skill_id"], name: "index_job_skills_on_skill_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "name"
+    t.bigint "department_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_jobs_on_department_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "description"
+    t.bigint "family_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_skills_on_family_id"
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "skill_id"
+    t.integer "grade"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_user_skills_on_skill_id"
+    t.index ["user_id"], name: "index_user_skills_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
