@@ -22,6 +22,7 @@ gem 'webpacker'
 # gem 'therubyracer', platforms: :ruby
 gem 'pry'
 gem 'jquery-rails'
+gem 'devise'
 gem 'bootstrap-sass'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
