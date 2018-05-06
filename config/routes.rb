@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/challenge' => 'challenge#index'
 
   get '/evaluate' => 'evaluate#index'
+
+  get '/search' => 'search#index'
 end
