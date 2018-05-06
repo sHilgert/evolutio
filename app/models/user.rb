@@ -11,11 +11,12 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     if user.present?
-      user.destroy
+      user
+    else
+      user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image, job: Job.first)
+      user.populate_skills
+      user
     end
-    user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image, job: Job.first)
-    user.populate_skills
-    user
   end
 
   def competence_average_percentage(competence)
