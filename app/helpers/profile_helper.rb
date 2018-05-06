@@ -27,7 +27,7 @@ module ProfileHelper
     competences.each do |competence|
       array << {
         name: competence.name,
-        percentage: user.competence_average_percentage(competence),
+        percentage: round_five(user.competence_average_percentage(competence)),
         list: get_skills(user, competence)
       }
     end

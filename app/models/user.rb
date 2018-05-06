@@ -47,7 +47,11 @@ class User < ApplicationRecord
       weight_total += weight
     end
 
-    value_total / weight_total / 5 * 100
+    if weight_total > 0
+      value_total / weight_total / 5 * 100
+    else
+      0
+    end
   end
 
   def job_level
