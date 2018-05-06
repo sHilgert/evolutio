@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_one :job
+  belongs_to :job
   has_one :leader, class_name: 'User'
+  has_many :user_skills
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -17,5 +18,10 @@ class User < ApplicationRecord
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
     end
+  end
+
+  def competence_average(competence)
+    # user.skills
+    
   end
 end
