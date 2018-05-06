@@ -1,23 +1,24 @@
-<div class="profile">
-  <div class="profile__header">
-    <h1>Perfil</h1>
-    <div class="profile__info">
-      <div class="profile__avatar">
-        <img src="<%= @profile[:avatar] %>" alt="avatar" class="profile__avatar-image">
-      </div>
-      <div class="profile__personal-info">
-        <p><%= @profile[:name] %></p>
-        <p><%= @profile[:job] %></p>
+<%= render "components/navbar/navbar" %>
+<div class="container">
+  <div class="profile">
+    <div class="profile__header">
+      <h1>Perfil</h1>
+      <div class="profile__info">
+        <div class="profile__avatar">
+          <img src="<%= @profile[:avatar] %>" alt="avatar" class="profile__avatar-image">
+        </div>
+        <div class="profile__personal-info">
+          <p><%= @profile[:name] %></p>
+          <p><%= @profile[:job] %></p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="profile__skills">
-    <h2>Competências</h2>
+    <div class="profile__skills">
+      <h2>Competências</h2>
 
-    <div class="profile__skills-wrap">
-      <%= render "components/skills/skills", skills: @profile[:skills] %>
+      <div class="profile__skills-wrap">
+        <%= render "components/skills/skills", skills: @profile[:skills] %>
+      </div>
     </div>
   </div>
 </div>
-
-<%= render "components/menu/menu" %>
