@@ -6,12 +6,12 @@
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <span class="clear">
               <span class="block m-t-xs">
-                <strong class="font-bold" style="color: white"><%= current_user.email %></strong>
+                <strong class="font-bold" style="color: white"><%= current_user.name.split(' ').first %></strong>
               </span>
             </span>
           </a>
           <ul class="dropdown-menu animated fadeInRight m-t-xs">
-            <li><a href="#">Logout</a></li>
+            <li><a href="/">Sair</a></li>
           </ul>
         </div>
         <div class="logo-element">
@@ -34,7 +34,7 @@
         <% end %>
       </li>
       <li class="<%= 'active' if current_page?('/') %>">
-        <%= link_to "/" do %>
+        <%= link_to "/evaluate" do %>
         <i class="fa fa-check-square-o"></i> <span class="nav-label">Avaliar</span>
         <% end %>
       </li>

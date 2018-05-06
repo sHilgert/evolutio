@@ -1,0 +1,49 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-12">
+    <h2><i class="fa fa-check-square-o"></i> Avaliações</h2>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class = "row">
+    <div class = "col-lg-8 col-lg-offset-2 col-xs-12">
+      <% if @none %>
+        <div class = "ibox float-e-margins">
+          <div class = "ibox-content" align="center">
+            <h3>Você não possui avaliações para fazer</h3>
+          </div>
+        </div>
+      <% else %>
+      <% @users.each do |user| %>
+        <div class = "ibox float-e-margins">
+          <div class = "ibox-title">
+            <h3><%= user.name %></h3>
+          </div>
+          <div class = "ibox-content">
+
+            <% user.user_skills.each do |user_skill| %>
+            <div class="row row-skill-evaluate">
+              <div class="col-xs-6">
+                <p>
+                <%= user_skill.skill.description %>
+              </p>
+              </div>
+              <div class="col-xs-6">
+                <input class="form-control"></input>
+              </div>
+            </div>
+            <% end %>
+            <div class="row">
+              <div class="col-md-12" align="right">
+                <button class='btn btn-primary avaliar-button'>
+                  Avaliar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

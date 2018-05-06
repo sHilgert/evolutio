@@ -10,7 +10,7 @@
               <%= el[:name] %>
             <% end %>
             <%= label_tag nil, class: 'skills-grade' do %>
-              <%= el[:grade] %>
+              <%= "#{el[:grade]} (peso #{el[:weight]})" %>
             <% end %>
           </div>
         <% end %>
