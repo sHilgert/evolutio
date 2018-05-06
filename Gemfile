@@ -24,8 +24,9 @@ gem 'pry'
 gem 'jquery-rails'
 gem 'devise'
 
-gem 'slack-ruby-client'
+gem 'omniauth-slack'
 gem 'decent_exposure'
+gem 'font-awesome-rails'
 
 gem 'bootstrap-sass'
 # Use CoffeeScript for .coffee assets and views
