@@ -46,6 +46,7 @@ class User < ApplicationRecord
       weight = us.job_skill.weight
       grade = us.grade
 
+      next if grade.blank?
       value_total += weight * grade
       weight_total += weight
     end
