@@ -1,5 +1,5 @@
 $ ->
-  $(".js-submit").click ->
+  $(".js-submit-evaluate").click ->
     a = $(".js-agora-vai").filter( (f) ->
       return $(this).val() && $(this).data("user") == parseInt($('#current_user_id').val()))
     if !a
