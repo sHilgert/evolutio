@@ -22,21 +22,24 @@
           <div class = "ibox-content">
 
             <% user.user_skills.each do |user_skill| %>
-            <div class="row row-skill-evaluate">
-              <div class="col-xs-6">
-                <p>
-                <%= user_skill.skill.description %>
-              </p>
+              <div class="row row-skill-evaluate">
+                <div class="col-xs-6">
+                  <p>
+                    <%= user_skill.skill.description %>
+                  </p>
+                </div>
+                <div class="col-xs-6">
+                  <input class='form-control js-agora-vai' data-id="<%= user_skill.id %>" data-user="<%= user.id %>"></input>
+                  <%= hidden_field_tag :user_skill_id, user_skill.id %>
+                  <%= hidden_field_tag :current_user_id, user.id %>
+                </div>
               </div>
-              <div class="col-xs-6">
-                <input class='form-control js-agora-vai'></input>
-                <%= hidden_field_tag :user_skill_id, user_skill.id %>
-              </div>
-            </div>
             <% end %>
             <div class="row">
               <div class="col-md-12" align="right">
-                <%= link_to evaluate_path "Avaliar", class: 'btn btn-primary avaliar-button', method: :post, :data => %>
+                <div class="challenge__submit js-submit">
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
               </div>
             </div>
           </div>
@@ -46,14 +49,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  inputs = document.querySelectorAll('.js-agora-vai')
-  $._ajax({
-    type: "POST",
-    url: url,
-    data: data,
-    success: success,
-    dataType: dataType
-  });
-</script>

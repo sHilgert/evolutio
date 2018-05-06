@@ -6,7 +6,10 @@ class EvaluateController < ApplicationController
 
   def create
     binding.pry
+    puts permit_params
   end
+
+  private
 
   def check_if_none
     none = true
@@ -18,5 +21,9 @@ class EvaluateController < ApplicationController
       end
     end
     none
+  end
+
+  def permit_params
+    params.permit(:data)
   end
 end

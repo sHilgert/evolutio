@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   get '/challenge' => 'challenge#index'
 
   get '/evaluate' => 'evaluate#index'
+  post '/evaluate' => 'evaluate#create', as: :evaluate_create
 
   get '/search' => 'search#index'
-
-  post '/evaluate' => 'evaluate#create'
 end
