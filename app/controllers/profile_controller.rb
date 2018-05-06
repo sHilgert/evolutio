@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   include ProfileHelper
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @profile = {
