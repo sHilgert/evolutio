@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_one :leader, foreign_key: 'leader_id', class_name: 'User'
   has_many :user_skills
 
-  # Include default devise modules. Others available are:
+  # Include default devise modules. Others available are:|
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[slack]
@@ -13,7 +13,7 @@ class User < ApplicationRecord
     if user.present?
       user
     else
-      user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image, job: Job.first)
+      user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image, job: Job.where(name: ['Desenvolvedor Back-end', 'Desenvolvedor Front-end', 'BI Analyst', 'Guia do Aluno - Telefone', 'Guia do Aluno - Chat', 'Líder de Vendas', 'Operações', 'Tech Lead', 'Product Owner']).sample)
       user.populate_skills
       user
     end
