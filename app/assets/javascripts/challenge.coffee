@@ -1,6 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
   $(".js-challenge__submit-skill").click ->
     element = $(".js-challenge__skill-text")
@@ -26,7 +23,7 @@ $ ->
     $(".js-user-field").val($(".js-user-field").val().concat($(this).data('id'), "; "))
     removeFromSelect(this)
 
-  $(".js-submit").click ->
+  $(".js-submit-challenge").click ->
     description = $('.js-description').val()
     skills = $(".js-skill-field").val().split('; ')
     users = $(".js-user-field").val().split('; ')
