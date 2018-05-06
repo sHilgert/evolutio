@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
   def competence_average(competence)
     # user.skills
-    
+    user_skills = self.user_skills.job_skills.from_competence(competence)
+
+    user_skills.each do |us|
+      
+    end
   end
 end
