@@ -23,6 +23,11 @@
         <i class="fa fa-user"></i> <span class="nav-label">Perfil</span>
         <% end %>
       </li>
+      <li class="<%= 'active' if current_page?('/search') %>">
+        <%= link_to "/search" do %>
+        <i class="fa fa-search"></i> <span class="nav-label">Busca</span>
+        <% end %>
+      </li>
       <li class="<%= 'active' if current_page?('/') %>">
         <%= link_to "/" do %>
         <i class="fa fa-wrench"></i> <span class="nav-label">Habilidade</span>
