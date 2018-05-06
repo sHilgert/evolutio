@@ -19,7 +19,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.omniauth :slack, "358493348705.358811282388", "890d6846c7650f8d86becc5013856b38", scope: "admin"
+  config.omniauth :slack, "358493348705.358811282388", "890d6846c7650f8d86becc5013856b38", scope: "users:read"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
