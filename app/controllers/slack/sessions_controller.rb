@@ -43,7 +43,6 @@ module Slack
     end
 
     def ensure_ok!
-      binding.pry
       return if oauth_token['ok']
 
       message = 'An error occurred when signing in with Slack'
