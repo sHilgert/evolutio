@@ -17,11 +17,11 @@ class User < ApplicationRecord
       user.avatar = auth.info.image # assuming
       user.job = Job.first if user.job.blank?
       user.save!
-      populate_skills if user.job.blank?
+      user.populate_skills
       user
     else
       user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image, job: Job.first)
-      populate_skills
+      user.populate_skills
       user
     end
   end
@@ -63,6 +63,8 @@ class User < ApplicationRecord
   end
 
   def populate_skills
+    return unless self.user_skills.none?
+
     j = self.job
     job_skills = j.job_skills
 
@@ -72,7 +74,7 @@ class User < ApplicationRecord
       us.skill = job_skill.skill
       us.skill_type = 'job'
       us.job_skill = job_skill
-      us.user = u
+      us.user = self
       us.save!
     end
   end
