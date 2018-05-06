@@ -48,5 +48,5 @@ buildPostData = (description, skills, users) ->
     dataType: 'json',
     data: JSON.stringify({ description: description, skills: skills, users: users }),
     success: () ->
-      alert('Enviado!')
+      location.reload()
   })
