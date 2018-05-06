@@ -7,7 +7,7 @@ module Slack
     expose(:oauth_token) do
       slack_client.oauth_access(
         client_id: '178369105184.359005625602',
-        client_secret: 'a4e981c2482e35856f5ef642234c7f77',
+        client_secret: '174ff43ee36c73b85a2ee0b9bb84d703',
         redirect_uri: slack_login_url,
         code: params[:code])
     end
@@ -43,6 +43,7 @@ module Slack
     end
 
     def ensure_ok!
+      binding.pry
       return if oauth_token['ok']
 
       message = 'An error occurred when signing in with Slack'
