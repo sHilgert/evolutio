@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   belongs_to :job, optional: true
-  has_one :leader, class_name: 'User'
+  has_one :leader, foreign_key: 'leader_id', class_name: 'User'
   has_many :user_skills
 
   # Include default devise modules. Others available are:

@@ -19,7 +19,7 @@
             <div class="challenge__item">
               <label class="challenge__item-description">Em quais habilidades você aceita o desafio?</label>
               <div class="input-group">
-                <div class="dropdown js-dropdown">
+                <div class="dropdown js-skill-dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Habilidade
                     <span class="caret"></span>
@@ -34,23 +34,30 @@
               <div class="challenge__items-area">
                 <div class="challenge__item-area-element js-challenge__skill-area">
                   <% for skill in @selectedSkills %>
-                    <%= "##{skill} " %>
+                    <%= "##{skill}; " %>
                   <% end %>
                 </div>
               </div>
             </div>
             <div class="challenge__item">
-              <label class="challenge__item-description">Quais outros líderes você gostaria de desafiar?</label>
+              <label class="challenge__item-description">Quais usuários você gostaria de desafiar?</label>
               <div class="input-group">
-                <input type="text" class="form-control js-challenge__leader-text" placeholder="@lider">
-                <span class="input-group-btn">
-                  <button class="btn btn-default js-challenge__submit-leader" type="button">OK</button>
-                </span>
+                <div class="dropdown js-user-dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Usuário
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu scrollable-menu">
+                    <% for user in @users %>
+                      <li><a href="#" data-id="<%= user[:id] %>" data-user="<%= user[:user] %>"><%= user[:user] %></a></li>
+                    <% end %>
+                  </ul>
+                </div>
               </div>
               <div class="challenge__items-area">
-                <div class="challenge__item-area-element js-challenge__leader-area">
-                  <% for leader in @leaders %>
-                    <%= "@#{leader} " %>
+                <div class="challenge__item-area-element js-challenge__user-area">
+                  <% for user in @selectedUsers %>
+                    <%= "@#{user}; " %>
                   <% end %>
                 </div>
               </div>
