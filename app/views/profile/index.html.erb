@@ -1,19 +1,36 @@
-<div class="container">
-  <div class="profile">
-    <div class="profile__header">
-      <h1>Perfil</h1>
-      <div class="profile__info">
-        <div class="profile__avatar">
-          <img src="<%= @profile[:avatar] %>" alt="avatar" class="profile__avatar-image">
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-12">
+    <h2>Perfil<span class="pull-right"><i class="fa fa-sliders"></i><span></h2>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class = "row">
+    <div class = "col-lg-8 col-lg-offset-2 col-xs-12">
+      <div class = "ibox float-e-margins">
+        <div class = "ibox-title">
+          <h5>Segurança</h5>
+          <div class="ibox-tools">
+            <i class = "fa fa-lock"></i>
+          </div>
         </div>
-        <div class="profile__personal-info">
-          <p><%= @profile[:name] %></p>
-          <p><%= @profile[:job] %></p>
+        <div class = "ibox-content">
+          <div class="profile__info">
+            <div class="profile__avatar">
+              <img src="<%= @profile[:avatar] %>" alt="avatar" class="profile__avatar-image">
+            </div>
+            <div class="profile__personal-info">
+              <p><%= @profile[:name] %></p>
+              <p><%= @profile[:job] %></p>
+            </div>
+            <div class="profile__skills">
+              <h2>Competências</h2>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="profile__skills">
-      <h2>Competências</h2>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 .nav > li > a {
-  color: $nav-text-color;
+  color: white;
   font-weight: 600;
   padding: 14px 20px 14px 25px;
 }
@@ -152,8 +152,8 @@
 
 .nav-header {
   padding: 33px 25px;
-  background-color: $nav-bg;
-  background-image: $nav-profile-pattern;
+  background-color: #00B5D4;
+
 
 }
 
@@ -446,7 +446,7 @@ body.canvas-menu .logo-element {
 
 body.mini-navbar .nav-header {
   padding: 0;
-  background-color: $navy;
+  background-color: #00B5D4;
 }
 
 body.canvas-menu .nav-header {
@@ -552,7 +552,7 @@ body.canvas-menu.mini-navbar .navbar-default .nav li .profile-element a span {
 
 body.canvas-menu nav.navbar-static-side {
   z-index: 2001;
-  background: #2f4050;
+  background: #00B5D4;
   height: 100%;
   position: fixed;
   display: none;
