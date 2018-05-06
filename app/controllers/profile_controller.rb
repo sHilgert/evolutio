@@ -7,6 +7,7 @@ class ProfileController < ApplicationController
     @profile = {
       name: "João da Silva",
       job: "Desenvolvedor Front-end",
+      level: "Pleno II",
       avatar: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
         skills: [
         {

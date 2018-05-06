@@ -1,44 +1,44 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-            <li class="nav-header">
-                <div class="dropdown profile-element">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="clear">
-                            <span class="block m-t-xs">
-                              <strong class="font-bold" style="color: white"><%= current_user.email %></strong>
-                            </span>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="#">Logout</a></li>
-                    </ul>
-                </div>
-                <div class="logo-element">
-                    Evolutio
-                </div>
-            </li>
-            <li class="<%= 'active' if current_page?('/') %>">
-                <%= link_to "/" do %>
-                <i class="fa fa-user"></i> <span class="nav-label">Perfil</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to "/home/minor" do %>
-                <i class="fa fa-wrench"></i> <span class="nav-label">Habilidade</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to "/home/minor" do %>
-                <i class="fa fa-handshake-o"></i> <span class="nav-label">Desafio</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to "/home/minor" do %>
-                <i class="fa fa-check-square-o"></i> <span class="nav-label">Avaliar</span>
-                <% end %>
-            </li>
-        </ul>
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span class="clear">
+              <span class="block m-t-xs">
+                <strong class="font-bold" style="color: white"><%= current_user.email %></strong>
+              </span>
+            </span>
+          </a>
+          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+        <div class="logo-element">
+          Evolutio
+        </div>
+      </li>
+      <li class="<%= 'active' if current_page?('/profile') %>">
+        <%= link_to "/profile" do %>
+        <i class="fa fa-user"></i> <span class="nav-label">Perfil</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/') %>">
+        <%= link_to "/" do %>
+        <i class="fa fa-wrench"></i> <span class="nav-label">Habilidade</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/challenge') %>">
+        <%= link_to "/challenge" do %>
+        <i class="fa fa-handshake-o"></i> <span class="nav-label">Desafio</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/') %>">
+        <%= link_to "/" do %>
+        <i class="fa fa-check-square-o"></i> <span class="nav-label">Avaliar</span>
+        <% end %>
+      </li>
+    </ul>
 
-    </div>
+  </div>
 </nav>
