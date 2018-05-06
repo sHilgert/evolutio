@@ -13,7 +13,7 @@ class EvaluateController < ApplicationController
       user_skill.grade = value.to_i
       user_skill.save!
     end
-    return redirect_back(fallback_location: fallback_location)
+    redirect_to evaluate_path
   end
 
   private
