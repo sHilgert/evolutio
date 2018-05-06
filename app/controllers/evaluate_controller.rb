@@ -4,6 +4,10 @@ class EvaluateController < ApplicationController
     @none = check_if_none
   end
 
+  def create
+    binding.pry
+  end
+
   def check_if_none
     none = true
     @users.each do |user|

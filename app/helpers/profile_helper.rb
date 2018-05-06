@@ -5,10 +5,6 @@ module ProfileHelper
     (number / 5).round * 5
   end
 
-  def pry_legal
-    binding.pry
-  end
-
   def profile_data_json(user)
     {
       name: user.name,

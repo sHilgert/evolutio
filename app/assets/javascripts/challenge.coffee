@@ -14,9 +14,21 @@ $ ->
     $(".js-challenge__leader-area").append(text)
     element.val("")
 
-  $(".js-dropdown li a").click ->
-    text = "##{$(this).data('skill')} "
+  $(".js-skill-dropdown li a").click ->
+    text = "##{$(this).data('skill')}; "
     $(".js-challenge__skill-area").append(text)
+    removeFromSelect(this)
+
+  $(".js-user-dropdown li a").click ->
+    text = "##{$(this).data('user')}; "
+    $(".js-challenge__user-area").append(text)
+    removeFromSelect(this)
 
   $(".js-submit").click ->
     description = $('.js-description').val()
+    
+
+removeFromSelect = (item) ->
+  $(item).remove()
+
+buildPostData = () ->

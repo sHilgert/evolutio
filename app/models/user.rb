@@ -11,13 +11,6 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     if user.present?
-      user.email = "#{auth.info.user}@bla.com"
-      user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
-      user.avatar = auth.info.image # assuming
-      user.job = Job.first if user.job.blank?
-      user.save!
-      user.populate_skills
       user
     else
       user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image, job: Job.first)
@@ -46,6 +39,7 @@ class User < ApplicationRecord
       weight = us.job_skill.weight
       grade = us.grade
 
+      next if grade.blank?
       value_total += weight * grade
       weight_total += weight
     end
