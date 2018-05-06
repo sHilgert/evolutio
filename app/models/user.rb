@@ -15,10 +15,13 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name   # assuming the user model has a name
       user.avatar = auth.info.image # assuming
-      user.save
+      user.job = Job.first if user.job.blank?
+      user.save!
+      populate_skills if user.job.blank?
       user
     else
-      user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image)
+      user = User.create(email: "#{auth.info.user}@bla.com", password: Devise.friendly_token[0,20], name: auth.info.name, avatar: auth.info.image, job: Job.first)
+      populate_skills
       user
     end
   end
@@ -57,5 +60,20 @@ class User < ApplicationRecord
   def job_level
     # passar a porcentagem total e calcular o level
     Level.get_from_percentage(total_average_percentage / 100)
+  end
+
+  def populate_skills
+    j = self.job
+    job_skills = j.job_skills
+
+    job_skills.each do |job_skill|
+      us = UserSkill.new
+      us.grade = rand(0.00..5.00)
+      us.skill = job_skill.skill
+      us.skill_type = 'job'
+      us.job_skill = job_skill
+      us.user = u
+      us.save!
+    end
   end
 end
