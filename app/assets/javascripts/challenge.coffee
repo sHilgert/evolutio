@@ -43,7 +43,7 @@ buildPostData = (description, skills, users) ->
 
   $.ajax({
     type: 'POST',
-    url: '/abc',
+    url: '/skills',
     headers: header,
     dataType: 'json',
     data: JSON.stringify({ description: description, skills: skills[0], users: 4 }),
