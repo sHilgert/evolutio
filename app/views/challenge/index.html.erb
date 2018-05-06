@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-12">
-    <h2>Desafio<span class="pull-right"><i class="fa fa-handshake-o"></i><span></h2>
+    <h2><i class="fa fa-handshake-o"></i> Desafio</h2>
   </div>
 </div>
 
@@ -24,7 +24,7 @@
                     Habilidade
                     <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu scrollable-menu">
                     <% for skill in @skills %>
                       <li><a href="#" data-id="<%= skill[:id] %>" data-skill="<%= skill[:skill] %>"><%= skill[:skill] %></a></li>
                     <% end %>
@@ -64,3 +64,10 @@
     </div>
   </div>
 </div>
+<style>
+.scrollable-menu {
+    height: auto;
+    max-height: 150px;
+    overflow-x: hidden;
+}
+  </style>
