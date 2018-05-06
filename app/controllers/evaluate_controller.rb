@@ -8,10 +8,8 @@ class EvaluateController < ApplicationController
     none = true
     @users.each do |user|
       user.user_skills.each do |skill|
-        binding.pry
         if !skill.grade.present?
           none = false
-          binding.pry
         end
       end
     end
