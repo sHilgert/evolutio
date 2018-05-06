@@ -5,7 +5,7 @@ class UserSkill < ApplicationRecord
 
   scope :job_skills, -> { where(skill_type: 'job') }
 
-  # def self.from_competence(competence)
-  #   self.where(competence: competence)
-  # end
+  def self.from_competence(competence)
+    self.joins(:job_skill).where("job_skills.competence_id = ?", competence.id)
+  end
 end
