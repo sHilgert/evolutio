@@ -5,8 +5,15 @@ class EvaluateController < ApplicationController
   end
 
   def create
-    binding.pry
-    puts permit_params
+    return if params[:data].length == 0
+    params[:data]
+    params[:data].each do |item|
+      value = item[:value]
+      user_skill = UserSkill.find(item[:id].to_i)
+      user_skill.grade = value.to_i
+      user_skill.save!
+    end
+    return redirect_back(fallback_location: fallback_location)
   end
 
   private
@@ -21,9 +28,5 @@ class EvaluateController < ApplicationController
       end
     end
     none
-  end
-
-  def permit_params
-    params.permit(:data)
   end
 end

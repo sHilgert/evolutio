@@ -8,7 +8,8 @@ $ ->
     a.each( (f) ->
       data.push({
         "id": $(this).data("id"),
-        "user": $(this).data("user")
+        "user": $(this).data("user"),
+        "value": $(this).val()
       })
     )
 
