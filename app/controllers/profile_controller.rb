@@ -4,6 +4,9 @@ class ProfileController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @profile = profile_data_json(current_user)
+    user = if params[:user_id]
+      User.where(id: params[:user_id]).first
+    end || current_user
+    @profile = profile_data_json(user)
   end
 end

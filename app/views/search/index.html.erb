@@ -10,16 +10,20 @@
       <div class = "ibox float-e-margins">
         <div class = "ibox-content">
           <div class="search">
-            <table>
+            <table class="search__table">
               <thead>
                 <tr>
                   <th>Nome</th>
+                  <th>Cargo</th>
+                  <th>Líder</th>
                 </tr>
               </thead>
               <tbody>
                 <% for user in @users %>
                   <tr>
-                    <td><%= user[:name] %></td>
+                    <td><a href="/profile/<%= user.try(:id) %>"><%= user.try(:name) %></a></td>
+                    <td><%= user.try(:job).try(:name) %></td>
+                    <td><a href="/profile/<%= user.try(:leader).try(:id) %>"><%= user.try(:leader).try(:name) %></a></td>
                   </tr>
                 <% end %>
               </tbody>

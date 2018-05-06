@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery/jquery-3.1.1.min.js
+//= require dataTable/jquery.dataTables.min.js
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
