@@ -4,11 +4,10 @@ class ChallengeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @leaders = [
-      "Yugue", "Ney", "Pufe", "Roger"
-    ].map(&:downcase)
+    @users = get_users(current_user)
     @skills = get_job_skills(current_user)
     @selectedSkills = []
+    @selectedUsers = []
   end
 
   def create
