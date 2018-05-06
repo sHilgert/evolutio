@@ -10,6 +10,7 @@ class ChallengeController < ApplicationController
     @selectedUsers = []
   end
 
-  def create
+  def blablabla
+    binding.pry
   end
 end

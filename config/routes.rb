@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get '/skills' => 'challenge#index'
+  post '/abc' => 'challenge#blablabla'
 
   get '/evaluate' => 'evaluate#index'
   post '/evaluate' => 'evaluate#create'
 
   get '/challenge' => 'real_challenge#index'
+
   get '/search' => 'search#index'
 end

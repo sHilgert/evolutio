@@ -5,7 +5,6 @@ class EvaluateController < ApplicationController
   end
 
   def create
-    binding.pry
     puts permit_params
   end
 

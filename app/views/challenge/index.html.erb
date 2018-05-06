@@ -12,7 +12,7 @@
           <div class="challenge__body">
             <div class="challenge__item">
               <div class="item-group">
-                <label class="challenge__item-description">Que tal explicar para o seu líder o motivo de você estar solicitando uma melhoria de habilidade?</label>
+                <label class="challenge__item-description">Que tal explicar para os avaliadores o motivo de você estar desafiando ele?</label>
                 <textarea class="form-control js-description" rows="5" placeholder="Descrição" style="resize:none"></textarea>
               </div>
             </div>
@@ -29,6 +29,9 @@
                       <li><a href="#" data-id="<%= skill[:id] %>" data-skill="<%= skill[:skill] %>"><%= skill[:skill] %></a></li>
                     <% end %>
                   </ul>
+
+                  <%= hidden_field_tag :'users_ids', '', { class: 'js-skill-field' } %>
+
                 </div>
               </div>
               <div class="challenge__items-area">
@@ -52,6 +55,9 @@
                       <li><a href="#" data-id="<%= user[:id] %>" data-user="<%= user[:user] %>"><%= user[:user] %></a></li>
                     <% end %>
                   </ul>
+
+                  <%= hidden_field_tag :'skills_ids', '', { class: 'js-user-field' } %>
+
                 </div>
               </div>
               <div class="challenge__items-area">
@@ -63,7 +69,7 @@
               </div>
             </div>
             <div class="challenge__submit js-submit">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
           </div>
         </div>
@@ -71,10 +77,11 @@
     </div>
   </div>
 </div>
+
 <style>
-.scrollable-menu {
+  .scrollable-menu {
     height: auto;
     max-height: 150px;
     overflow-x: hidden;
-}
-  </style>
+  }
+</style>
