@@ -1,0 +1,66 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-12">
+    <h2>Desafio<span class="pull-right"><i class="fa fa-handshake-o"></i><span></h2>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class = "row">
+    <div class = "col-lg-8 col-lg-offset-2 col-xs-12">
+      <div class = "ibox float-e-margins">
+        <div class = "ibox-content">
+          <div class="challenge__body">
+            <div class="challenge__item">
+              <div class="item-group">
+                <label class="challenge__item-description">Que tal explicar para o seu líder o motivo de você estar desafiando ele?</label>
+                <textarea class="form-control js-description" rows="5" placeholder="Descrição" style="resize:none"></textarea>
+              </div>
+            </div>
+            <div class="challenge__item">
+              <label class="challenge__item-description">Em quais habilidades você aceita o desafio?</label>
+              <div class="input-group">
+                <div class="dropdown js-dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Habilidade
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <% for skill in @skills %>
+                      <li><a href="#" data-id="<%= skill[:id] %>" data-skill="<%= skill[:skill] %>"><%= skill[:skill] %></a></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+              <div class="challenge__items-area">
+                <div class="challenge__item-area-element js-challenge__skill-area">
+                  <% for skill in @selectedSkills %>
+                    <%= "##{skill} " %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="challenge__item">
+              <label class="challenge__item-description">Quais outros líderes você gostaria de desafiar?</label>
+              <div class="input-group">
+                <input type="text" class="form-control js-challenge__leader-text" placeholder="@lider">
+                <span class="input-group-btn">
+                  <button class="btn btn-default js-challenge__submit-leader" type="button">OK</button>
+                </span>
+              </div>
+              <div class="challenge__items-area">
+                <div class="challenge__item-area-element js-challenge__leader-area">
+                  <% for leader in @leaders %>
+                    <%= "@#{leader} " %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="challenge__submit js-submit">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
