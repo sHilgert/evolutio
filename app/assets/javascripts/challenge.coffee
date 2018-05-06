@@ -46,7 +46,7 @@ buildPostData = (description, skills, users) ->
     url: '/skills',
     headers: header,
     dataType: 'json',
-    data: JSON.stringify({ description: description, skills: skills[0], users: 4 }),
+    data: JSON.stringify({ description: description, skills: skills, users: users }),
     success: () ->
       alert('Enviado!')
   })
