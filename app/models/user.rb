@@ -20,12 +20,35 @@ class User < ApplicationRecord
     end
   end
 
-  def competence_average(competence)
-    # user.skills
+  def competence_average_percentage(competence)
     user_skills = self.user_skills.job_skills.from_competence(competence)
 
+    average_from_user_skills(user_skills)
+  end
+
+  def total_average_percentage
+    user_skills = self.user_skills.job_skills
+
+    average_from_user_skills(user_skills)
+  end
+
+  def average_from_user_skills(user_skills)
+    weight_total = 0
+    value_total = 0
+
     user_skills.each do |us|
-      
+      weight = us.job_skill.weight
+      grade = us.grade
+
+      value_total += weight * grade
+      weight_total += weight
     end
+
+    value_total / weight_total / 5 * 100
+  end
+
+  def job_level
+    # passar a porcentagem total e calcular o level
+    Level.get_from_percentage(total_average_percentage / 100)
   end
 end
