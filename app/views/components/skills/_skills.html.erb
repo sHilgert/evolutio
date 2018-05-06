@@ -1,14 +1,20 @@
 <div class="skills">
   <% for skill in skills %>
-    <%= render "components/progress-bar/progress-bar", percentage: skill[:percentage], skill_name: skill[:name] %>
+    <div class="skills__component">
+      <%= render "components/progress-bar/progress-bar", percentage: skill[:percentage], skill_name: skill[:name] %>
 
-    <% for el in skill[:list] %>
       <div class="skills-list">
-        <%= label_tag nil, class: 'skills-label' do %>
-          <%= check_box_tag nil, nil, el[:checked], class: '', disabled: true %>
-          <%= el[:name] %>
+        <% for el in skill[:list] %>
+          <div class="skills-xablau">
+            <%= label_tag nil, class: 'skills-label' do %>
+              <%= el[:name] %>
+            <% end %>
+            <%= label_tag nil, class: 'skills-grade' do %>
+              <%= el[:grade] %>
+            <% end %>
+          </div>
         <% end %>
-      </div>
-    <% end %>
+    </div>
+  </div>
   <% end %>
 </div>

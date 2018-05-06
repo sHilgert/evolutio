@@ -6,8 +6,8 @@ module Slack
     expose(:slack_client) { Slack::Web::Client.new }
     expose(:oauth_token) do
       slack_client.oauth_access(
-        client_id: '178369105184.359005625602',
-        client_secret: '174ff43ee36c73b85a2ee0b9bb84d703',
+        client_id: '358493348705.358811282388',
+        client_secret: '890d6846c7650f8d86becc5013856b38',
         redirect_uri: slack_login_url,
         code: params[:code])
     end
