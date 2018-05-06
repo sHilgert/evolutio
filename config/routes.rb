@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   get '/profile' => 'profile#index'
+  get '/challenge' => 'challenge#index'
 end
